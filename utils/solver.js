@@ -1,4 +1,4 @@
-const wordsUrl = 'words.txt';
+const wordsUrl = 'utils/words.txt';
 
 let availableWords = [];
 fetch(wordsUrl)
