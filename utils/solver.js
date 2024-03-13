@@ -26,7 +26,16 @@ function canSpellWord(letters, word) {
 }
 
 function findAnagrams(letters, wordList) {
-  return wordList.filter(word => isAnagram(letters, word));
+    const inputLetterCount = getLetterCount(letters);
+    return wordList.filter(word => {
+        const wordLetterCount = getLetterCount(word);
+        for (let letter in wordLetterCount) {
+            if (!inputLetterCount[letter] || wordLetterCount[letter] > inputLetterCount[letter]) {
+                return false;
+            }
+        }
+        return true;
+    });
 }
 
 function isAnagram(str1, str2) {
