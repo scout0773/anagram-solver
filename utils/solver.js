@@ -10,8 +10,8 @@ fetch(wordsUrl)
 
 function updateSuggestions() {
     const input = document.getElementById('inputLetters').value;
-    const suggestions = findAnagrams(input, availableWords);
-    displaySuggestions(suggestions.filter(word => canSpellWord(input, word)));
+    const suggestions = findAnagrams(input, availableWords).filter(word => canSpellWord(input, word));
+    displaySuggestions(suggestions);
 }
 
 function canSpellWord(letters, word) {
