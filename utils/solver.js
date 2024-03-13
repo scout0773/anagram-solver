@@ -48,6 +48,9 @@ function isAnagram(str1, str2) {
 function displaySuggestions(suggestions) {
   const suggestionsElement = document.getElementById('suggestions');
   suggestionsElement.innerHTML = '';
+
+  suggestions.sort((a, b) => b.length - a.length);
+
   suggestions.forEach(word => {
     if (word) {
         const score = calculateScore(word);
