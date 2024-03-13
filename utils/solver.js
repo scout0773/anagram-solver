@@ -49,11 +49,13 @@ function displaySuggestions(suggestions) {
   const suggestionsElement = document.getElementById('suggestions');
   suggestionsElement.innerHTML = '';
   suggestions.forEach(word => {
-    const score = calculateScore(word);
-    const listItem = document.createElement('li');
-    listItem.className = 'word-item';
-    listItem.textContent = `${word} (Score: ${score})`;
-    suggestionsElement.appendChild(listItem);
+    if (word) {
+        const score = calculateScore(word);
+        const listItem = document.createElement('li');
+        listItem.className = 'word-item';
+        listItem.textContent = `${word} (Score: ${score})`;
+        suggestionsElement.appendChild(listItem);
+    }
   });
 }
 
