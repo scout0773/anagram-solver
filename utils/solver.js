@@ -1,15 +1,12 @@
 const wordsUrl = 'utils/words.txt';
 
-// use XMLHttpRequest instead of fetch because of CORS browser policy
-const xhr = new XMLHttpRequest();
-xhr.open('GET', wordsUrl);
-xhr.onload = function() {
-  if (xhr.status === 200) {
-    availableWords = xhr.responseText.split(/\r?\n/);
+let availableWords = [];
+fetch(wordsUrl)
+  .then(response => response.text())
+  .then(text => {
+    availableWords = text.split(/\r?\n/);
     updateSuggestions();
-  }
-};
-xhr.send();
+});
 
 function updateSuggestions() {
     const input = document.getElementById('inputLetters').value;
