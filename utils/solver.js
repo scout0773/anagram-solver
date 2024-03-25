@@ -6,7 +6,7 @@ xhr.open('GET', wordsUrl);
 xhr.onload = function() {
   if (xhr.status === 200) {
     availableWords = xhr.responseText.split(/\r?\n/);
-    updateSuggestions(availableWords);
+    updateSuggestions();
   }
 };
 xhr.send();
