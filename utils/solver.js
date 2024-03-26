@@ -1,7 +1,5 @@
-const wordsUrl = 'utils/words.txt';
-
 let availableWords = [];
-fetch(wordsUrl)
+fetch('https://raw.githubusercontent.com/scout0773/anagram-solver/main/utils/words.txt')
   .then(response => response.text())
   .then(text => {
     availableWords = text.split(/\r?\n/);
